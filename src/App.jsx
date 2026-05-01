@@ -18,6 +18,10 @@ import {
 } from "react-icons/fa";
 import { MdSensors, MdApi, MdScience } from "react-icons/md";
 
+const assetPath = (path) => {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+};
+
 const GROUP_EMAIL = "it22889188@my.sliit.lk,it22353566@my.sliit.lk,it22911162@my.sliit.lk";
 
 const driveLinks = {
@@ -329,7 +333,15 @@ function SectionTitle({ eyebrow, title, subtitle }) {
 function Home() {
   return (
     <section id="home" className="hero-section">
-      <div className="hero-bg" />
+      <div
+        className="hero-bg"
+        style={{
+          backgroundImage: `
+            linear-gradient(100deg, rgba(7, 26, 47, 0.96) 0%, rgba(7, 26, 47, 0.78) 45%, rgba(31, 138, 91, 0.36) 100%),
+            url("${assetPath("images/hero.png")}")
+          `
+        }}
+      />
       <div className="hero-overlay" />
 
       <div className="floating-panel panel-one">
@@ -511,7 +523,7 @@ function Domain() {
 
           <figure className="diagram-block">
             <img
-              src="/images/architecture.png"
+              src={assetPath("images/architecture.png")}
               alt="High level architecture of predictive analytics framework"
             />
             <figcaption>High-Level Architecture of the Predictive Analytics Framework</figcaption>
@@ -665,7 +677,7 @@ function About() {
         <div className="team-grid">
           {team.map((member) => (
             <article className="team-card reveal" key={member.id}>
-              <img src={member.image} alt={member.name} />
+              <img src={assetPath(member.image)} alt={member.name} />
               <h3>{member.name}</h3>
               <span>{member.id}</span>
               <h4>{member.role}</h4>
