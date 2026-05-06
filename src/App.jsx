@@ -28,14 +28,19 @@ const driveLinks = {
   charter: "https://drive.google.com/file/d/1jyD-CS1inE7PNkSjhpzCSNVgEV1Vmfpd/view?usp=sharing",
   proposal: "https://drive.google.com/drive/folders/1FYnEmM1fKne5sbM9NxUToD9JxPhFBREl?usp=sharing",
   finalReport: "https://drive.google.com/file/d/1H6jdLtifEINjGWzlSLZ83loyqBBYEMer/view?usp=sharing",
-  checklist: "PASTE_GOOGLE_DRIVE_CHECKLIST_LINK_HERE",
+
+  checklist1: "https://drive.google.com/drive/folders/1AX7Hb3SqpqBo2F48dyhkYdMeWqNjJqtg?usp=drive_link",
+  checklist2: "https://docs.google.com/presentation/d/1LlyYgdFcZejkoDXQgPWEIldJD3iY93sA/edit?usp=drive_link&ouid=106469666424516281803&rtpof=true&sd=true",
+  researchPaper: "https://drive.google.com/file/d/1rxo9J-HnDMB_cCQNNrYu_UoVIHBSrm8Y/view?usp=drive_link",
+
   individualSachintha: "https://drive.google.com/file/d/1WMo1Vpg_DhIaCWtgBlC2aQN4vbVrNzW3/view?usp=sharing",
   individualYukthila: "https://drive.google.com/file/d/1kI-VCAaBiKaMa9ivKCDrLSa85X3fSSVD/view?usp=sharing",
   individualDhananjaya: "https://drive.google.com/file/d/1SnTyismzGQKSnRnpWBdm5BJ8WQRFN4h3/view?usp=sharing",
+
   proposalSlides: "https://drive.google.com/file/d/16lmUzHOUNFSML9sQ1Wy7xq4PtTETkRZE/view?usp=sharing",
   progressOneSlides: "https://docs.google.com/presentation/d/1BSDBGGsRf1SR62hiFEL9DUo-aGvcUGG_/edit?usp=sharing&ouid=106469666424516281803&rtpof=true&sd=true",
   progressTwoSlides: "https://docs.google.com/presentation/d/1TCT-WvdGiAsQdH8-p5LYalULD5i_kQEH/edit?usp=sharing&ouid=106469666424516281803&rtpof=true&sd=true",
-  finalSlides: "PASTE_GOOGLE_DRIVE_FINAL_PRESENTATION_LINK_HERE"
+  finalSlides: "https://docs.google.com/presentation/d/1LlyYgdFcZejkoDXQgPWEIldJD3iY93sA/edit?usp=drive_link&ouid=106469666424516281803&rtpof=true&sd=true"
 };
 
 const navItems = [
@@ -190,7 +195,10 @@ const milestones = [
 const documents = [
   { title: "Project Charter", type: "Document", status: "Completed", link: driveLinks.charter },
   { title: "Project Proposal", type: "Document", status: "Completed", link: driveLinks.proposal },
-  { title: "Final Group Report", type: "Document", status: "Completed", link: driveLinks.finalReport },
+  { title: "Thesis Document", type: "Document", status: "Completed", link: driveLinks.finalReport },
+  { title: "Checklist 1", type: "Document", status: "Completed", link: driveLinks.checklist1 },
+  { title: "Checklist 2", type: "Document", status: "Completed", link: driveLinks.checklist2 },
+  { title: "Research Paper", type: "Document", status: "Completed", link: driveLinks.researchPaper },
   { title: "Individual Report - IT22353566", type: "Document", status: "Completed", link: driveLinks.individualSachintha },
   { title: "Individual Report - IT22911162", type: "Document", status: "Completed", link: driveLinks.individualYukthila },
   { title: "Individual Report - IT22889188", type: "Document", status: "Completed", link: driveLinks.individualDhananjaya }
@@ -200,7 +208,7 @@ const presentations = [
   { title: "Proposal Presentation", status: "Completed", link: driveLinks.proposalSlides },
   { title: "Progress Presentation 1", status: "Completed", link: driveLinks.progressOneSlides },
   { title: "Progress Presentation 2", status: "Completed", link: driveLinks.progressTwoSlides },
-  //{ title: "Final Presentation", status: "Pending", link: driveLinks.finalSlides }
+  { title: "Final Presentation", status: "Completed", link: driveLinks.finalSlides }
 ];
 
 const team = [
@@ -233,8 +241,29 @@ const team = [
   }
 ];
 
+const supervisors = [
+  {
+    name: "Mrs. Lokesha Weerasinghe",
+    role: "Supervisor",
+    designation: "Senior Lecturer",
+    department: "Department of Information Technology",
+    institution: "Sri Lanka Institute of Information Technology",
+    email: "lokesha.w@sliit.lk",
+    image: "/images/supervisors/supervisor.jpeg"
+  },
+  {
+    name: "Ms. Malithi Nawarathne",
+    role: "Co-Supervisor",
+    designation: "Lecturer",
+    department: "Department of Information Technology",
+    institution: "Sri Lanka Institute of Information Technology",
+    email: "malithi.n@sliit.lk",
+    image: "/images/supervisors/co-supervisor.jpg"
+  }
+];
+
 function isPlaceholderLink(link) {
-  return !link || link.includes("PASTE_GOOGLE_DRIVE");
+  return !link || link.includes("PASTE_");
 }
 
 function useRevealAnimation() {
@@ -442,19 +471,41 @@ function Domain() {
             <h3>Literature Survey</h3>
           </div>
 
-          <div>
-            <p>
-              Mushroom cultivation is sensitive to environmental conditions such as temperature,
-              humidity, ventilation, CO₂ level and hygiene. These factors affect mycelium
-              development, primordia formation, fruitbody development, harvest quality and disease spread.
-            </p>
+        <p>
+          Mushroom cultivation is a highly environment-sensitive agricultural process.
+          Temperature, relative humidity, ventilation, CO₂ concentration, hygiene, and
+          stage-specific growing conditions directly influence mycelium colonization,
+          primordia formation, fruitbody development, harvest readiness, and overall
+          yield quality <sup>[1]-[3]</sup>. Traditional mushroom farms often depend on
+          manual observation and periodic checking. This approach can be time-consuming
+          and less reliable when farmers manage a large number of cultivation bags.
+          IoT-based smart farming systems address this limitation by collecting
+          continuous sensor readings and making real-time environmental monitoring
+          possible <sup>[7], [8]</sup>.
+          However, monitoring alone is not sufficient for effective decision-making.
+          Farmers need early warnings before unsuitable conditions cause growth delays,
+          contamination, or yield reduction. Machine learning forecasting methods can
+          be used to predict near-future temperature and humidity changes, allowing
+          farmers to take corrective actions earlier <sup>[9]</sup>.
+        </p>
 
-            <p>
-              Modern smart agriculture systems use IoT sensors, cloud databases, machine learning and
-              mobile applications to improve decision-making. Deep learning and computer vision can also
-              support image-based mushroom type classification, growth-stage prediction and disease detection.
-            </p>
-          </div>
+        <p>
+          Image-based analysis has also become important in modern agriculture.
+          Computer vision and convolutional neural networks can classify crop types,
+          detect visual growth patterns, and identify disease symptoms from images
+          <sup>[10]</sup>. Lightweight transfer learning architectures such as
+          MobileNetV2 are especially useful for mobile-connected systems because they
+          provide strong classification performance with lower computational cost
+          <sup>[15]</sup>.
+          Existing agricultural disease detection systems commonly focus on identifying
+          disease labels from images, but farmers also need follow-up support such as
+          treatment guidance, severity estimation, and history tracking <sup>[11], [12]</sup>.
+          Therefore, this project combines environmental monitoring, forecasting,
+          mushroom type classification, growth-stage prediction, disease detection,
+          treatment recommendation, and severity monitoring into one integrated
+          decision-support framework.
+        </p>  
+   
         </div>
 
         <div id="gap" className="content-card reveal">
@@ -671,7 +722,7 @@ function About() {
         <SectionTitle
           eyebrow="About Us"
           title="Research Team"
-          subtitle="Group members, student IDs, component responsibilities and contact information."
+          subtitle="Group members, student IDs, component responsibilities, supervisors and contact information."
         />
 
         <div className="team-grid">
@@ -685,6 +736,30 @@ function About() {
               <a href={`mailto:${member.email}`}>Email</a>
             </article>
           ))}
+        </div>
+
+        <div className="supervisor-section reveal">
+          <div className="supervisor-heading">
+            
+            <h3>Supervisors</h3>
+            
+          </div>
+
+          <div className="supervisor-grid">
+            {supervisors.map((person) => (
+              <article className="supervisor-card" key={person.role}>
+                <img src={assetPath(person.image)} alt={person.name} />
+                <div>
+                  <span className="supervisor-role">{person.role}</span>
+                  <h3>{person.name}</h3>
+                  <h4>{person.designation}</h4>
+                  <p>{person.department}</p>
+                  <p>{person.institution}</p>
+                  <a href={`mailto:${person.email}`}>{person.email}</a>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
