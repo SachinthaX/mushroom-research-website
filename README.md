@@ -6,6 +6,8 @@ This is the official research website for **A Predictive Analytics Framework for
 **Institution:** Sri Lanka Institute of Information Technology  
 **Technology:** Vite + React
 
+🔗 **Live Site:** [Mushroom Research Website](https://sachinthax.github.io/mushroom-research-website/)
+
 ## Project Overview
 
 This project supports mushroom farmers through an integrated smart cultivation framework. The system includes:
